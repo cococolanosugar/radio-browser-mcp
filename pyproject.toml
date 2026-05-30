@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "radio-browser-mcp"
+version = "0.3.0"
+description = "MCP server for Radio-Browser internet radio + Claude Code status line with audio spectrum"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+readme = "README.md"
+authors = [
+    {name = "radio-browser-mcp contributors"}
+]
+keywords = ["mcp", "radio", "audio", "spectrum", "claude", "radio-browser"]
+dependencies = [
+    "mcp>=1.0.0",
+    "httpx>=0.24.0",
+]
+
+[project.optional-dependencies]
+win = ["pywin32"]
+dev = ["pytest", "pytest-asyncio"]
+
+[project.scripts]
+radio-browser-mcp = "radio_browser_mcp.server:main"
+
+[project.urls]
+Homepage = "https://github.com/cococolanosugar/radio-browser-mcp"
+Repository = "https://github.com/cococolanosugar/radio-browser-mcp"
+Issues = "https://github.com/cococolanosugar/radio-browser-mcp/issues"
+
+[tool.setuptools.packages.find]
+include = ["radio_browser_mcp*"]
+
+[tool.setuptools.package-data]
+radio_browser_mcp = ["*.py"]
